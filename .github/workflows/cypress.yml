@@ -12,16 +12,8 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
         with:
-          node-version: 18
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Verify Cypress
-        run: npx cypress verify
-
-      - name: Run Cypress tests
-        run: npx cypress run
+          install: true
+          runTests: true
